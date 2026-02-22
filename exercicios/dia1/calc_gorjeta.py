@@ -7,7 +7,7 @@ gorjeta_valor = valor_conta * (gorjeta / 100)
 total = valor_conta + gorjeta_valor
 valor_por_pessoa = total / quantidade
 print(
-    f'Valor da Gorjeta: R${gorjeta_valor:.2f} \nValor total: R${total:.2f} \nValor por pessoa R${valor_por_pessoa:.2f}'
+    f'Valor da Gorjeta: R${gorjeta_valor:.2f} \nValor total: R${total:.2f} \nValor por pessoa: R${valor_por_pessoa:.2f}'
 )
 
 
