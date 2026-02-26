@@ -11,6 +11,7 @@ alunos = []
 
 def adicionar_aluno():
     nome = input("Digite o nome do aluno: ")
+    nome = nome.title()
     nota = float(input("Digite a nota do aluno: "))
     alunos.append({'nome': nome, 'nota': nota})
     print(f"Aluno {nome} adicionado com sucesso!")
