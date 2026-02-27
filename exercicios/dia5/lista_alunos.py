@@ -7,6 +7,33 @@
 #Mostrar media da turma
 #Use duas listas paralelas (nomes e notas) ou uma lista de listas.
 
+# ============================================
+# LISTA DE ALUNOS
+# ============================================
+# Programa para gerenciar uma lista de alunos com notas.
+#
+# FUNCIONALIDADES:
+# - Adicionar aluno (nome e nota)
+# - Listar todos os alunos (ordenado por nome)
+# - Mostrar alunos aprovados (nota >= 7)
+# - Mostrar alunos reprovados (nota < 7)
+# - Calcular média da turma
+#
+# COMO USAR:
+# 1. Execute o programa: python3 lista_alunos.py
+# 2. Escolha uma opção do menu
+# 3. Siga as instruções na tela
+#
+# CONCEITOS UTILIZADOS:
+# - Listas
+# - Dicionários
+# - Funções
+# - Condicionais
+# - Loops
+# - List comprehension
+# - String formatting
+# ============================================
+
 alunos = []
 
 def adicionar_aluno():
