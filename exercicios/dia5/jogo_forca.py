@@ -25,6 +25,22 @@
 #17. se palavra foi descoberta (sem '_'):
     #18. mostrar 'você ganhou'
 
+# =============================================================================
+# JOGO DA FORCA
+# =============================================================================
+# Objetivo: Advinhar uma palavra secreta antes de esgotar as tentativas
+# 
+# Como jogar:
+# - O programa sortea uma palavra de uma lista pre-definida
+# - Você tem 6 tentativas para advinhar letras
+# - A cada letra correta, a posição é revelada
+# - A cada letra errada, uma tentativa é perdida
+# - O jogo mostra as letras erradas e as tentativas restantes
+# 
+# Condições de vitória: Descobrir todas as letras antes de zerar as tentativas
+# Condição de derrota: Acabar as 6 tentativas sem descobrir a palavra
+# =============================================================================
+
 #Código:
 
 
