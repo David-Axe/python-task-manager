@@ -41,7 +41,7 @@ palavra_oculta = ['_' for _ in palavra]
 print(' '.join(palavra_oculta))
 
 
-while tentativas > 0 and '_' not in palavra_oculta:
+while tentativas > 0 and '_' in palavra_oculta:
     letra = input('Chute uma letra:')
     if letra in palavra:
         if letra in palavra_oculta:
@@ -50,7 +50,7 @@ while tentativas > 0 and '_' not in palavra_oculta:
             for i in range(len(palavra)):
                 if palavra[i] == letra:
                     palavra_oculta[i] = letra
-                    print(' '.join(palavra_oculta))
+            print(' '.join(palavra_oculta))
     else:
         letras_erradas.append(letra)
         tentativas -= 1
