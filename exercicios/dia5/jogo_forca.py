@@ -38,25 +38,25 @@ tentativas = 6
 letras_erradas = []
 palavra = random.choice(palavras)
 palavra_oculta = ['_' for _ in palavra]
-print(' '.join(palavra_oculta), flush=True)
+print(' '.join(palavra_oculta))
 
 
 while tentativas > 0 and '_' not in palavra_oculta:
     letra = input('Chute uma letra:')
     if letra in palavra:
         if letra in palavra_oculta:
-            print('Você já descobriu esta letra!', flush=True)
+            print('Você já descobriu esta letra!')
         else:
             for i in range(len(palavra)):
                 if palavra[i] == letra:
                     palavra_oculta[i] = letra
-                    print(' '.join(palavra_oculta), flush=True)
+                    print(' '.join(palavra_oculta))
     else:
         letras_erradas.append(letra)
         tentativas -= 1
-        print(letras_erradas, flush=True)
-    print(f'Tentativas restantes: {tentativas}', flush=True)
+        print(letras_erradas)
+    print(f'Tentativas restantes: {tentativas}')
 if tentativas == 0:
-    print('Game over!', flush=True)
+    print('Game over!')
 elif '_' not in palavra_oculta:
-    print('Você GANHOU!', flush=True)
+    print('Você GANHOU!')
