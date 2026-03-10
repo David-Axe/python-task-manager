@@ -36,7 +36,7 @@ for i in range(qtd_alunos):
     media = (nota1 + nota2 + nota3) / 3
     
     # Define status
-    status = "Aprovado" if media >= 7 else "Reprovado"
+    status = "APROVADO" if media >= 7 else "REPROVADO"
     
     alunos.append({
         "nome": nome_aluno,
@@ -45,15 +45,17 @@ for i in range(qtd_alunos):
         "status": status
     })
 
+# Calcula estatísticas da turma
+aprovados = sum(1 for a in alunos if a["media"] >= 7)
+reprovados = len(alunos) - aprovados
+media_turma = sum(a["media"] for a in alunos) / len(alunos)
+
 # Mostra relatório final
-print("\n" + "=" * 30)
-print(f"TURMA: {nome_turma}")
-print("=" * 30)
+print(f"\n=== Relatorio da Turma {nome_turma} ===")
 
-for aluno in alunos:
-    print(f"\nAluno: {aluno['nome'].title()}")
-    print(f"Notas: {aluno['notas'][0]}, {aluno['notas'][1]}, {aluno['notas'][2]}")
-    print(f"Média: {aluno['media']:.2f}")
-    print(f"Status: {aluno['status']}")
-    print("-" * 20)
+for i, aluno in enumerate(alunos, 1):
+    print(f"{i}. {aluno['nome'].title():<15} - Media: {aluno['media']:.1f}  [{aluno['status']}]")
 
+print(f"\nMedia da turma: {media_turma:.1f}")
+print(f"Aprovados: {aprovados} ({aprovados/len(alunos)*100:.1f}%)")
+print(f"Reprovados: {reprovados} ({reprovados/len(alunos)*100:.1f}%)")
