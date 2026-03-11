@@ -5,6 +5,64 @@
 #Calcula media de cada aluno
 #Mostra relatorio final:
 
+# ALGORITMO MiniSistemaNotas
+# 1. Pedir nome da turma e guardar na variável
+# 2. Pedir quantidade de alunos da turma
+# 3. Criar lista vazia alunos = []
+# 4. Para cada aluno (1 até qtd_alunos):
+#    a. Pedir nome do aluno
+#    b. Para cada nota (1, 2, 3):
+#       - Pedir nota (entre 0 e 10)
+#       - Se nota inválida, mostrar erro e pedir novamente
+#    c. Calcular média = (nota1 + nota2 + nota3) / 3
+#    d. Se média >= 7: status = "APROVADO"
+#       Senão: status = "REPROVADO"
+#    e. Adicionar dicionário com dados do aluno na lista
+# 5. Calcular:
+#    a. aprovados = quantidade de alunos com média >= 7
+#    b. reprovados = total - aprovados
+#    c. média da turma = soma das médias / quantidade de alunos
+# 6. Mostrar relatório com:
+#    - Lista de alunos (nome, média, status)
+#    - Média da turma
+#    - Percentual de aprovados e reprovados
+# FIM
+
+# ============================================================================
+# README - MINI SISTEMA DE NOTAS
+# ============================================================================
+# 
+# DESCRIÇÃO:
+# Este programa gerencia as notas de alunos de uma turma, calcula médias
+# e gera um relatório com estatísticas.
+#
+# FUNCIONALIDADES:
+# 1. Receber o nome da turma
+# 2. Receber a quantidade de alunos
+# 3. Para cada aluno:
+#    - Solicitar nome
+#    - Coletar 3 notas (validadas entre 0 e 10)
+#    - Calcular média aritmética
+#    - Definir status automaticamente
+# 4. Calcular estatísticas da turma:
+#    - Total de aprovados e reprovados
+#    - Percentuais
+#    - Média geral da turma
+# 5. Exibir relatório final formatado
+#
+# CRITÉRIOS DE AVALIAÇÃO:
+# - APROVADO: média >= 7.0
+# - REPROVADO: média < 7.0
+#
+# ESTRUTURA DE DADOS:
+# - Lista de dicionários contendo: nome, notas[], media, status
+#
+# TRATAMENTO DE ERROS:
+# - Validação de notas (apenas números entre 0 e 10)
+# - Try/except para converter entrada em número
+#
+# ============================================================================
+
 # Pede o nome da turma
 nome_turma = input("Nome da turma: ")
 
