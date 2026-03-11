@@ -8,9 +8,9 @@
 # 1. Definir caracteres disponíveis (minúsculas, maiúsculas, números, símbolos)
 # 2. Receber tamanho desejado da senha
 # 3. Receber opções do usuário (incluir maiúsculas? números? símbolos?)
-# 4. Construir pool de caracteres baseado nas opções
+# 4. Construir caracteres de caracteres baseado nas opções
 # 5. Para cada posição (1 até tamanho):
-#    a. Escolher caractere aleatório do pool
+#    a. Escolher caractere aleatório do caracteres
 # 6. Retornar senha gerada
 # 7. BÔNUS: Classificar força da senha:
 #    - FRACA: apenas um tipo de caractere
@@ -40,7 +40,7 @@
 # 5. Exibir senha gerada e sua classificação
 #
 # ESTRUTURA DE DADOS:
-# - Strings contendo pool de caracteres
+# - Strings contendo caracteres de caracteres
 # - Variáveis booleanas para opções
 #
 # MÓDULOS UTILIZADOS:
@@ -58,16 +58,16 @@ def gerar_senha(tamanho, incluir_maiusculas=True, incluir_numeros=True, incluir_
     numeros = string.digits
     simbolos = "!@#$%^&*()_+-=[]{}|;:,.<>?"
     
-    pool = minusculas
+    caracteres = minusculas
     
     if incluir_maiusculas:
-        pool += maiusculas
+        caracteres += maiusculas
     if incluir_numeros:
-        pool += numeros
+        caracteres += numeros
     if incluir_simbolos:
-        pool += simbolos
+        caracteres += simbolos
     
-    senha = ''.join(random.choice(pool) for _ in range(tamanho))
+    senha = ''.join(random.choice(caracteres) for _ in range(tamanho))
     
     return senha
 
