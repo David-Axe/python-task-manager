@@ -4,6 +4,28 @@
 #Ao final, mostre a pontuacao e quais acertou/errou
 #Armazene perguntas em uma lista de listas ou dicionarios
 
+# ALGORITMO JogoQuiz
+# 1. Criar lista de perguntas (cada pergunta tem: texto, 4 alternativas, resposta correta)
+# 2. Inicializar variável acertos = 0
+# 3. Inicializar lista resultados = vazia
+# 4. Para cada pergunta na lista:
+#    a. Mostrar o texto da pergunta
+#    b. Mostrar as 4 alternativas
+#    c. Pedir resposta do usuário (a, b, c ou d)
+#    d. Se resposta for inválida (não é a, b, c ou d):
+#       - Mostrar mensagem de erro
+#       - Pedir resposta novamente até ser válida
+#    e. Converter resposta para minúscula
+#    f. Se resposta == resposta_correta:
+#       - acertos = acertos + 1
+#       - adicionar "Acertou" na lista resultados
+#    g. Senão:
+#       - adicionar "Errou" na lista resultados
+# 5. Mostrar pontuação final (acertos de total de perguntas)
+# 6. Para cada pergunta:
+#    a. Mostrar o número da pergunta e se acertou/errou
+# FIM
+
 # Quiz com 5 perguntas
 perguntas = [
     {
