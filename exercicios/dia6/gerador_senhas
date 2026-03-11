@@ -86,12 +86,27 @@ def classificar_forca(senha):
     else:
         return "FRACA"
 
+def ler_opcao(mensagem):
+    while True:
+        opcao = input(mensagem).lower()
+        if opcao in ["s", "n"]:
+            return opcao == "s"
+        print("Erro: digite s ou n")
+
 print("=== GERADOR DE SENHAS ===\n")
 
-tamanho = int(input("Quantos caracteres deve ter a senha? "))
-incluir_maiusculas = input("Incluir maiúsculas? (s/n): ").lower() == "s"
-incluir_numeros = input("Incluir números? (s/n): ").lower() == "s"
-incluir_simbolos = input("Incluir símbolos? (s/n): ").lower() == "s"
+while True:
+    try:
+        tamanho = int(input("Quantos caracteres deve ter a senha? "))
+        if tamanho > 0:
+            break
+        print("Erro: tamanho deve ser maior que 0")
+    except ValueError:
+        print("Erro: digite um número válido")
+
+incluir_maiusculas = ler_opcao("Incluir maiúsculas? (s/n): ")
+incluir_numeros = ler_opcao("Incluir números? (s/n): ")
+incluir_simbolos = ler_opcao("Incluir símbolos? (s/n): ")
 
 senha = gerar_senha(tamanho, incluir_maiusculas, incluir_numeros, incluir_simbolos)
 forca = classificar_forca(senha)
