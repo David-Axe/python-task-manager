@@ -1,0 +1,100 @@
+#Crie uma funcao que gera senhas aleatorias:
+#Recebe o tamanho desejado
+#Recebe opcoes: incluir maiusculas, numeros, simbolos
+#Retorna a senha gerada
+#Bonus: classificar a forca da senha (fraca, media, forte)
+
+# ALGORITMO GeradorSenhas
+# 1. Definir caracteres disponíveis (minúsculas, maiúsculas, números, símbolos)
+# 2. Receber tamanho desejado da senha
+# 3. Receber opções do usuário (incluir maiúsculas? números? símbolos?)
+# 4. Construir pool de caracteres baseado nas opções
+# 5. Para cada posição (1 até tamanho):
+#    a. Escolher caractere aleatório do pool
+# 6. Retornar senha gerada
+# 7. BÔNUS: Classificar força da senha:
+#    - FRACA: apenas um tipo de caractere
+#    - MÉDIA: dois tipos de caractere
+#    - FORTE: três ou mais tipos de caractere
+# FIM
+
+# ============================================================================
+# README - GERADOR DE SENHAS
+# ============================================================================
+#
+# DESCRIÇÃO:
+# Este programa gera senhas aleatórias seguras com base nas preferências
+# do usuário e classifica a força da senha gerada.
+#
+# FUNCIONALIDADES:
+# 1. Receber tamanho desejado da senha
+# 2. Opções de configuração:
+#    - Incluir letras maiúsculas (A-Z)
+#    - Incluir números (0-9)
+#    - Incluir símbolos (!@#$%^&*...)
+# 3. Gerar senha aleatória usando módulo random
+# 4. Classificar força da senha:
+#    - FRACA: apenas um tipo de caractere
+#    - MÉDIA: dois tipos de caractere
+#    - FORTE: três ou mais tipos de caractere
+# 5. Exibir senha gerada e sua classificação
+#
+# ESTRUTURA DE DADOS:
+# - Strings contendo pool de caracteres
+# - Variáveis booleanas para opções
+#
+# MÓDULOS UTILIZADOS:
+# - random: para escolha aleatória de caracteres
+# - string: para obter conjuntos de caracteres
+#
+# ============================================================================
+
+import random
+import string
+
+def gerar_senha(tamanho, incluir_maiusculas=True, incluir_numeros=True, incluir_simbolos=True):
+    minusculas = string.ascii_lowercase
+    maiusculas = string.ascii_uppercase
+    numeros = string.digits
+    simbolos = "!@#$%^&*()_+-=[]{}|;:,.<>?"
+    
+    pool = minusculas
+    
+    if incluir_maiusculas:
+        pool += maiusculas
+    if incluir_numeros:
+        pool += numeros
+    if incluir_simbolos:
+        pool += simbolos
+    
+    senha = ''.join(random.choice(pool) for _ in range(tamanho))
+    
+    return senha
+
+def classificar_forca(senha):
+    tem_minuscula = any(c in string.ascii_lowercase for c in senha)
+    tem_maiuscula = any(c in string.ascii_uppercase for c in senha)
+    tem_numero = any(c in string.digits for c in senha)
+    tem_simbolo = any(c in "!@#$%^&*()_+-=[]{}|;:,.<>?" for c in senha)
+    
+    tipos = sum([tem_minuscula, tem_maiuscula, tem_numero, tem_simbolo])
+    
+    if tipos >= 3:
+        return "FORTE"
+    elif tipos == 2:
+        return "MÉDIA"
+    else:
+        return "FRACA"
+
+print("=== GERADOR DE SENHAS ===\n")
+
+tamanho = int(input("Quantos caracteres deve ter a senha? "))
+incluir_maiusculas = input("Incluir maiúsculas? (s/n): ").lower() == "s"
+incluir_numeros = input("Incluir números? (s/n): ").lower() == "s"
+incluir_simbolos = input("Incluir símbolos? (s/n): ").lower() == "s"
+
+senha = gerar_senha(tamanho, incluir_maiusculas, incluir_numeros, incluir_simbolos)
+forca = classificar_forca(senha)
+
+print(f"\nSenha gerada: {senha}")
+print(f"Força: {forca}")
