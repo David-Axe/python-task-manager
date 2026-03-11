@@ -9,27 +9,27 @@ perguntas = [
     {
         "pergunta": "1. Qual a capital do Brasil?",
         "alternativas": ["a) Rio de Janeiro", "b) São Paulo", "c) Brasília", "d) Belo Horizonte"],
-        "resposta": 3
+        "resposta": "c"
     },
     {
         "pergunta": "2. Quanto é 2 + 2?",
         "alternativas": ["a) 3", "b) 4", "c) 5", "d) 6"],
-        "resposta": 2
+        "resposta": "b"
     },
     {
         "pergunta": "3. Qual cor é o céu?",
         "alternativas": ["a) Verde", "b) Azul", "c) Vermelho", "d) Amarelo"],
-        "resposta": 2
+        "resposta": "b"
     },
     {
         "pergunta": "4. Quantos dias tem uma semana?",
         "alternativas": ["a) 5", "b) 6", "c) 7", "d) 8"],
-        "resposta": 3
+        "resposta": "c"
     },
     {
         "pergunta": "5. Qual animal late?",
         "alternativas": ["a) Gato", "b) Vaca", "c) Cachorro", "d) Pato"],
-        "resposta": 3
+        "resposta": "c"
     }
 ]
 
@@ -43,7 +43,11 @@ for item in perguntas:
     for alt in item["alternativas"]:
         print(alt)
     
-    resposta = int(input("Digite a resposta (1-4): "))
+    resposta = input("Digite a resposta (a-d): ").lower()
+    
+    while resposta not in ["a", "b", "c", "d"]:
+        print("Opção inválida! Digite apenas a, b, c ou d")
+        resposta = input("Digite a resposta (a-d): ").lower()
     
     if resposta == item["resposta"]:
         acertos += 1
