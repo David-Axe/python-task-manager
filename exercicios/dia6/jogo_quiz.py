@@ -26,6 +26,33 @@
 #    a. Mostrar o número da pergunta e se acertou/errou
 # FIM
 
+# ============================================================================
+# README - JOGO QUIZ
+# ============================================================================
+#
+# DESCRIÇÃO:
+# Este programa é um jogo de quiz interativo com 5 perguntas de múltipla
+# escolha, onde o usuário responde e recebe feedback sobre seu desempenho.
+#
+# FUNCIONALIDADES:
+# 1. Exibir 5 perguntas com 4 alternativas cada (a, b, c, d)
+# 2. Coletar resposta do usuário
+# 3. Validar entrada (apenas a, b, c ou d)
+# 4. Converter resposta para minúscula (tratamento de maiúsculas)
+# 5. Contabilizar acertos automaticamente
+# 6. Mostrar pontuação final
+# 7. Listar cada pergunta com resultado (Acertou/Errou)
+#
+# ESTRUTURA DE DADOS:
+# - Lista de dicionários contendo: pergunta, alternativas[], resposta
+#
+# TRATAMENTO DE ERROS:
+# - Validação de entrada (apenas a, b, c, d)
+# - Conversão .lower() para aceitar maiúsculas/minúsculas
+# - Loop while para pedir nova entrada se inválida
+#
+# ============================================================================
+
 # Quiz com 5 perguntas
 perguntas = [
     {
