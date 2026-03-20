@@ -26,6 +26,21 @@ def adicionar_tarefa(tarefas):
     print('Tarefa adicionada!')
 
 
+def listar_tarefas(tarefas):
+    if len(tarefas) == 0:
+        print('Nenhuma tarefa cadastrada!')
+        return
+    
+    print('\n --- SUAS TAREFAS ---\n')
+
+    for i, tarefa in enumerate(tarefas, start=1):
+        if tarefa['concluida']:
+            marca = '[X]'
+        else:
+            marca = '[ ]'
+        print(f"{i}. {marca} {tarefa['titulo']} ({tarefa['prioridade']})")
+
+
 def mostrar_menu():
     print('''
           =====================================
@@ -40,3 +55,5 @@ def mostrar_menu():
         ''')
     
 mostrar_menu()
+adicionar_tarefa(tarefas)
+listar_tarefas(tarefas)
