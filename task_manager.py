@@ -24,3 +24,19 @@ def adicionar_tarefa(tarefas):
 
     tarefas.append(tarefa)
     print('Tarefa adicionada!')
+
+
+def mostrar_menu():
+    print('''
+          =====================================
+                  GERENCIADOR DE TAREFAS
+          =====================================
+          1. Adicionar tarefa
+          2. Listar tarefas
+          3. Marcar como concluída
+          4. Remover tarefa
+          5. Sair
+          =====================================
+        ''')
+    
+mostrar_menu()
