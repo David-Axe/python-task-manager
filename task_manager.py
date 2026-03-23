@@ -40,6 +40,20 @@ def listar_tarefas(tarefas):
             marca = '[ ]'
         print(f"{i}. {marca} {tarefa['titulo']} ({tarefa['prioridade']})")
 
+def marcar_concluida(tarefas):
+    if len(tarefas) == 0:
+        print('Nenhuma tarefa cadastrada!')
+        return
+    
+    listar_tarefas(tarefas)
+    c1 = int(input('Qual tarefa você deseja marcar como concluída? '))
+    if c1 < 1 or c1 > len(tarefas):
+        print('Número inválido!')
+        return
+    indice = c1 - 1
+    tarefas[indice]['concluida'] = True
+    print('Tarefa marcada como concluída!')
+        
 
 def mostrar_menu():
     print('''
