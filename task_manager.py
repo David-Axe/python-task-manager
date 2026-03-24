@@ -54,6 +54,17 @@ def marcar_concluida(tarefas):
     tarefas[indice]['concluida'] = True
     print('Tarefa marcada como concluída!')
         
+def remover_tarefa(tarefas):
+    if len(tarefas) > 0:
+        listar_tarefas(tarefas)
+        remove = int(input('Qual tarefa você deseja remover? '))
+        if remove < 1 or remove > len(tarefas):
+            print('Esta tarefa não existe!')
+            return
+        indice = remove - 1
+        tarefas.pop(indice)
+        print('Tarefa removida! ')
+
 
 def mostrar_menu():
     print('''
