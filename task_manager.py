@@ -78,7 +78,25 @@ def mostrar_menu():
           5. Sair
           =====================================
         ''')
-    
-mostrar_menu()
-adicionar_tarefa(tarefas)
-listar_tarefas(tarefas)
+
+
+def main():
+    while True:
+        mostrar_menu()
+        opcao = input('Opção: ')
+        if opcao == '1':
+            adicionar_tarefa(tarefas)
+        elif opcao == '2':
+            listar_tarefas(tarefas)
+        elif opcao == '3':
+            marcar_concluida(tarefas)
+        elif opcao == '4':
+            remover_tarefa(tarefas)
+        elif opcao == '5':
+            print('Programa encerrado!')
+            break
+        else:
+            print('Opção inválida!')
+
+
+main()
