@@ -26,19 +26,34 @@ def adicionar_tarefa(tarefas):
     print('Tarefa adicionada!')
 
 
-def listar_tarefas(tarefas):
+def listar_tarefas(tarefas, filtro='todas'):
     if len(tarefas) == 0:
         print('Nenhuma tarefa cadastrada!')
         return
     
-    print('\n --- SUAS TAREFAS ---\n')
+    if filtro == 'pendentes':
+        tarefas = [t for t in tarefas if not t ['concluida']]
+    elif filtro == 'concluidas':
+        tarefas = [t for t in tarefas if t ['concluida']]
 
-    for i, tarefa in enumerate(tarefas, start=1):
-        if tarefa['concluida']:
-            marca = '[X]'
+    if len(tarefas) == 0:
+        if filtro == 'pendentes':
+            print('Nenhuma tarefa pedente!')
+        elif filtro == 'concluidas':
+            print('Nenhuma tarefa concluida!')
         else:
-            marca = '[ ]'
+            print('Nenhuma tarefa cadastrada!')
+        return
+    
+    print('\n --- SUAS TAREFAS ---\n')
+    for i, tarefa in enumerate(tarefas, start=1):
+        marca = '[X]' if tarefa['concluida'] else '[ ]'
         print(f"{i}. {marca} {tarefa['titulo']} ({tarefa['prioridade']})")
+
+    pendentes = len([t for t in tarefas if not t['concluida']])
+    concluidas = len([t for t in tarefas if t['concluida']])
+    print(f'\nPendentes: {pendentes} | Concluídas: {concluidas} | Total: {len(tarefas)}')
+    
 
 def marcar_concluida(tarefas):
     if len(tarefas) == 0:
@@ -64,6 +79,8 @@ def remover_tarefa(tarefas):
         indice = remove - 1
         tarefas.pop(indice)
         print('Tarefa removida! ')
+    else:
+        print('Nenhuma tarefa para remover!')
 
 
 def mostrar_menu():
